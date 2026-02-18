@@ -1,41 +1,35 @@
 ```mermaid
-usecaseDiagram
-    actor Student
-    actor Faculty
-    actor "Librarian (Admin)" as Admin
+flowchart TD
 
-    package "BookNest System Scope" {
-        usecase "Login / Authentication" as UC1
-        usecase "Search Catalog" as UC2
-        usecase "Borrow Book" as UC3
-        usecase "Return Book" as UC4
-        usecase "Pay Fine" as UC5
-        usecase "Manage Inventory" as UC6
-        usecase "Generate Reports" as UC7
-        usecase "System Configuration" as UC8
-        usecase "Reserve Book" as UC9
-    }
+User[Member]
 
-    Student --> UC1
-    Student --> UC2
-    Student --> UC3
-    Student --> UC4
-    Student --> UC9
-    
-    Faculty --> UC1
-    Faculty --> UC2
-    Faculty --> UC3
-    Faculty --> UC4
-    Faculty --> UC9
+Register[Register]
+Login[Login]
+Search[Search Book]
+Borrow[Borrow Book]
+Return[Return Book]
+Reserve[Reserve Book]
+ViewFine[View Fine]
+Purchase[Purchase Request]
 
-    Admin --> UC1
-    Admin --> UC6
-    Admin --> UC7
-    Admin --> UC8
-    Admin --> UC5 : "Override Fine"
+Admin[Librarian]
+ManageInventory[Manage Inventory]
+OverrideFine[Override Fine]
+ManageUsers[Manage Users]
+Reports[View Reports]
 
-    UC3 ..> UC1 : <<include>>
-    UC9 ..> UC3 : <<extend>>
-    UC4 ..> UC5 : <<include>>
-    UC3 <.. UC2 : <<extend>>
+User --> Register
+User --> Login
+User --> Search
+User --> Borrow
+User --> Return
+User --> Reserve
+User --> ViewFine
+User --> Purchase
+
+Admin --> ManageInventory
+Admin --> OverrideFine
+Admin --> ManageUsers
+Admin --> Reports
+Admin --> Search
 ```
