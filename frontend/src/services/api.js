@@ -12,13 +12,12 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Response interceptor to handle token expiration
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
-      // window.location.href = '/login'; // Optional: handled by context
+      window.location.href = '/login';
     }
     return Promise.reject(error);
   }
