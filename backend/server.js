@@ -13,13 +13,16 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // CORS — allow Vercel frontend and local dev
+// Safely handle trailing slashes in environment variables
+const frontendUrl = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.replace(/\/$/, '') : null;
+
 const allowedOrigins = [
-  process.env.FRONTEND_URL,           // e.g. https://booknest-sepia.vercel.app
+  frontendUrl,                        // e.g. https://booknest-sepia.vercel.app
   'http://localhost:5173',
   'http://localhost:3000',
 ].filter(Boolean);
 
-app.use(cors({
+const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (e.g. Postman, curl, server-to-server)
     if (!origin) return callback(null, true);
@@ -29,10 +32,12 @@ app.use(cors({
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+};
 
-// Handle preflight requests for all routes
-app.options('*', cors());
+app.use(cors(corsOptions));
+
+// Handle preflight requests for all routes using the same options
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 
