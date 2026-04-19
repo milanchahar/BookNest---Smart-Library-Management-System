@@ -23,6 +23,6 @@ BookNest is a full-stack library management solution designed to handle complex 
 
 ## Tech Stack
 - **Backend:** Node.js (TypeScript/JavaScript), Express.js
-- **Database:** MySQL (Relational Schema with Foreign Keys)
+- **Database:** PostgreSQL (Relational Schema with Foreign Keys)
 - **Frontend:** React.js (Admin Dashboard & Student Portal)
 - **Architecture:** Layered MVC (Model-View-Controller) with Repository Pattern.

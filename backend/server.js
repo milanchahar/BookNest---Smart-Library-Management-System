@@ -32,10 +32,9 @@ app.get('/', (req, res) => {
 });
 
 // Database connection check on startup
-pool.getConnection()
-  .then(connection => {
-    console.log('✅ Successfully connected to MySQL database');
-    connection.release();
+pool.query('SELECT 1')
+  .then(() => {
+    console.log('Successfully connected to PostgreSQL database');
   })
   .catch(err => {
     console.error('❌ Database connection failed:', err.message);

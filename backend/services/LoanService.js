@@ -71,7 +71,7 @@ class LoanService {
       loan.role,
       loan.due_date,
       returnDate,
-      loan.is_rare === 1 // MySQL boolean handling
+      loan.is_rare
     );
 
     // 2. If fine exists, create fine record

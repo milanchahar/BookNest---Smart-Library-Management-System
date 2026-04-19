@@ -21,9 +21,9 @@ This project is configured for easy deployment on **Railway.app**. Follow the [D
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Node.js, Express.js, MySQL
+- **Backend**: Node.js, Express.js, PostgreSQL
 - **Frontend**: React.js (Vite), Axios, React Router
-- **Database**: MySQL (hosted on Railway)
+- **Database**: PostgreSQL (hosted on Railway)
 - **Deployment**: Railway.app (Nixpacks)
 
 ## 📸 Demo Accounts
@@ -34,7 +34,7 @@ This project is configured for easy deployment on **Railway.app**. Follow the [D
 ## ⚙️ Local Setup Instructions
 
 ### 1. Database Setup
-1. Execute the schema found in `backend/database/schema.sql` on your local MySQL.
+1. Execute the schema found in `backend/database/schema.sql` on your local PostgreSQL.
 
 ### 2. Backend Setup
 1. `cd backend`
@@ -51,12 +51,12 @@ This project is configured for easy deployment on **Railway.app**. Follow the [D
 ## 🌍 Railway Deployment Checklist
 
 1. Go to **railway.app** → Login with GitHub.
-2. **New Project** → **Deploy MySQL**.
-3. Click MySQL service → **Variables** tab → copy all 5 DB variables.
-4. Click MySQL → **Data** tab → paste `schema.sql` → **Run**.
+2. **New Project** → **Deploy PostgreSQL**.
+3. Click PostgreSQL service → **Variables** tab → copy `DATABASE_URL` (or the individual DB variables).
+4. Click PostgreSQL → **Data** tab → paste `schema.sql` → **Run**.
 5. **New service** → **GitHub Repo** → select BookNest repo.
 6. Settings → **Root Directory** → type: `backend`.
-7. Variables → add `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASS`, `DB_NAME`, `JWT_SECRET`, `PORT=5000`.
+7. Variables → add `DATABASE_URL` (from the PostgreSQL service), `JWT_SECRET`, `PORT=5000`, `FRONTEND_URL`.
 8. Deploy → wait for logs to show "Server running".
 9. Settings → **Domains** → **Generate Domain** → copy backend URL.
 10. **New service** → **GitHub Repo** → select BookNest repo again.
