@@ -48,25 +48,5 @@ This project is configured for easy deployment on **Railway.app**. Follow the [D
 3. Create `.env` from `.env.example`.
 4. `npm run dev`
 
-## 🌍 Railway Deployment Checklist
-
-1. Go to **railway.app** → Login with GitHub.
-2. **New Project** → **Deploy PostgreSQL**.
-3. Click PostgreSQL service → **Variables** tab → copy `DATABASE_URL` (or the individual DB variables).
-4. Click PostgreSQL → **Data** tab → paste `schema.sql` → **Run**.
-5. **New service** → **GitHub Repo** → select BookNest repo.
-6. Settings → **Root Directory** → type: `backend`.
-7. Variables → add `DATABASE_URL` (from the PostgreSQL service), `JWT_SECRET`, `PORT=5000`, `FRONTEND_URL`.
-8. Deploy → wait for logs to show "Server running".
-9. Settings → **Domains** → **Generate Domain** → copy backend URL.
-10. **New service** → **GitHub Repo** → select BookNest repo again.
-11. Settings → **Root Directory** → type: `frontend`.
-12. Variables → add `VITE_API_URL = [your backend URL]/api`.
-13. Deploy → wait for build to complete.
-14. Settings → **Domains** → **Generate Domain** → copy frontend URL (**THIS IS YOUR LIVE LINK**).
-15. Add live link to this README and GitHub About section.
-16. `git add . && git commit -m "docs: add live link" && git push`.
-17. Submit Google Form.
-
 ---
 *Developed for Advanced Software Engineering Course.*
