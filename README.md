@@ -1,6 +1,6 @@
 # BookNest — Smart Library Management System 📚
 
-**Live Demo**: [[LIVE_LINK_HERE]]
+**Live Demo**: []
 
 BookNest is a premium, full-stack library management solution built with modern web technologies. It features an advanced fine calculation engine, role-based membership borrowing rules, and a sleek, glassmorphic user interface.
 
